@@ -1,0 +1,6 @@
+- better printing
+- array size macro
+- better strings
+- write documentation with limitations
+  - every single one must build and work before finishing
+  - no crt
