@@ -1,8 +1,6 @@
-#include "common.h"
+#include "io.h"
 
-static BOOL compare_delimiter(PBYTE str, PBYTE end, PBYTE delimiter);
-
-static SIZE_T wstrlen(LPCWSTR str);
+#include "str.h"
 
 PBYTE COMMON read_file(LPCWSTR filename, PSIZE_T out_size)
 {
@@ -63,51 +61,6 @@ COMPLETE:
     return data;
 }
 
-PBYTE COMMON tokenize(PBYTE *location, PBYTE end, PBYTE delimiter,
-    PSIZE_T out_size)
-{
-    if ((location == NULL) || (*location == NULL) || (end == NULL) ||
-        (delimiter == NULL) || (out_size == NULL) || (*location > end))
-    {
-        return NULL;
-    }
-
-    PBYTE data = *location;
-    PBYTE start = data;
-
-    if (compare_delimiter(data, end, delimiter))
-    {
-        PBYTE tmp = delimiter;
-
-        while (*tmp != '\0')
-        {
-            data++;
-            start++;
-            tmp++;
-        }
-    }
-
-    while (data <= end)
-    {
-        if (compare_delimiter(data, end, delimiter))
-        {
-            break;
-        }
-
-        data++;
-    }
-
-    *location = data;
-    *out_size = data - start;
-
-    return start;
-}
-
-BOOL COMMON is_digit(BYTE character)
-{
-    return (character >= '0') && (character <= '9');
-}
-
 void COMMON print_solve_number(LPCWSTR header, ULONGLONG number)
 {
     HANDLE stdout = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -160,83 +113,4 @@ void COMMON print_solve_number(LPCWSTR header, ULONGLONG number)
     }
 
     return;
-}
-
-BOOL COMMON has_substr(PBYTE str, SIZE_T size, LPCSTR substr)
-{
-    if ((str == NULL) || (size == 0) || (substr == NULL))
-    {
-        return FALSE;
-    }
-
-    BOOL result = FALSE;
-
-    for (SIZE_T i = 0; i < size; i++)
-    {
-        if (substr[i] == '\0')
-        {
-            result = TRUE;
-            break;
-        }
-
-        if (str[i] != substr[i])
-        {
-            break;
-        }
-
-        if ((i == size - 1) && (substr[i + 1] == '\0'))
-        {
-            result = TRUE;
-            break;
-        }
-    }
-
-    return result;
-}
-
-static BOOL compare_delimiter(PBYTE str, PBYTE end, PBYTE delimiter)
-{
-    if ((str == NULL) || (end == NULL) || (delimiter == NULL))
-    {
-        return FALSE;
-    }
-
-    BOOL is_valid = FALSE;
-
-    for (;;)
-    {
-        if (*delimiter == '\0')
-        {
-            is_valid = TRUE;
-            break;
-        }
-
-        if ((str > end) || (*str != *delimiter))
-        {
-            break;
-        }
-
-        str++;
-        delimiter++;
-    }
-
-    return is_valid;
-}
-
-static SIZE_T wstrlen(LPCWSTR str)
-{
-    if (str == NULL)
-    {
-        return 0;
-    }
-
-    SIZE_T size = 0;
-
-    while (*str != L'\0')
-    {
-        size++;
-        str++;
-    }
-
-    return size;
 }

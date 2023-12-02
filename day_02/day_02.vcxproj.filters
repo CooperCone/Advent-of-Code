@@ -15,21 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\common.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\io.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\str.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\io.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\str.c">
+    <ClCompile Include="src\day02.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

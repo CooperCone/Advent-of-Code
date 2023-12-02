@@ -1,17 +1,13 @@
-#include <windows.h>
-
 #include "solve.h"
-#include "common.h"
+
+#include "str.h"
+#include "io.h"
 
 typedef struct
 {
     LONG digit1;
     LONG digit2;
 } Digits;
-
-static LPCWSTR example1 = L"res\\example1.txt";
-static LPCWSTR example2 = L"res\\example2.txt";
-static LPCWSTR input = L"res\\input.txt";
 
 static PBYTE digit_names[] =
 {
@@ -26,20 +22,10 @@ static PBYTE digit_names[] =
     "nine",
 };
 
-static void get_puzzle1_digit(LONG *digit, PBYTE data, SIZE_T data_len);
-static void get_puzzle2_digit(LONG *digit, PBYTE data, SIZE_T data_len);
+static void get_puzzle1_digit(LONG *digit, String data);
+static void get_puzzle2_digit(LONG *digit, String data);
 
-static LONG match_str(PBYTE data, SIZE_T data_len);
-
-int mainCRTStartup()
-{
-    Result01 result = solve01(input);
-
-    print_solve_number(L"Solve 1:", result.solve1);
-    print_solve_number(L"Solve 2:", result.solve2);
-
-    return 0;
-}
+static LONG match_str(String data);
 
 Result01 solve01(LPCWSTR filename)
 {
@@ -54,16 +40,17 @@ Result01 solve01(LPCWSTR filename)
         goto COMPLETE;
     }
 
-    PBYTE end = file_data + file_size - 1;
-    PBYTE file_location = file_data;
+    String file_str =
+    {
+        .str = file_data,
+        .size = file_size
+    };
 
     for (;;)
     {
-        SIZE_T line_length = 0;
+        String line = tokenize(&file_str, "\r\n");
 
-        PBYTE line = tokenize(&file_location, end, "\r\n", &line_length);
-
-        if (line == NULL)
+        if (line.size == 0)
         {
             break;
         }
@@ -71,19 +58,26 @@ Result01 solve01(LPCWSTR filename)
         Digits solve1 = { -1, -1 };
         Digits solve2 = { -1, -1 };
 
-        for (SIZE_T i = 0; i < line_length; i++)
+        String left = line;
+        String right =
         {
-            PCHAR left = line + i;
-            PCHAR right = line + line_length - i - 1;
+            .str = line.str + line.size - 1,
+            .size = 1,
+        };
 
-            SIZE_T left_len = line_length;
-            SIZE_T right_len = i + 1;
+        for (SIZE_T i = 0; i < line.size; i++)
+        {
+            get_puzzle1_digit(&solve1.digit1, left);
+            get_puzzle1_digit(&solve1.digit2, right);
 
-            get_puzzle1_digit(&solve1.digit1, left, left_len);
-            get_puzzle1_digit(&solve1.digit2, right, right_len);
+            get_puzzle2_digit(&solve2.digit1, left);
+            get_puzzle2_digit(&solve2.digit2, right);
 
-            get_puzzle2_digit(&solve2.digit1, left, left_len);
-            get_puzzle2_digit(&solve2.digit2, right, right_len);
+            left.str++;
+            left.size--;
+
+            right.str--;
+            right.size++;
         }
 
         result.solve1 += solve1.digit1 * 10 + solve1.digit2;
@@ -97,42 +91,42 @@ COMPLETE:
     return result;
 }
 
-static void get_puzzle1_digit(LONG *digit, PBYTE data, SIZE_T data_len)
+static void get_puzzle1_digit(LONG *digit, String data)
 {
-    if ((digit == NULL) || (data == NULL) || (data_len == 0))
+    if ((digit == NULL) || (data.str == NULL) || (data.size == 0))
     {
         return;
     }
 
-    if ((*digit == -1) && is_digit(*data))
+    if ((*digit == -1) && is_digit(*data.str))
     {
-        *digit = *data - '0';
+        *digit = *data.str - '0';
     }
 }
 
-static void get_puzzle2_digit(LONG *digit, PBYTE data, SIZE_T data_len)
+static void get_puzzle2_digit(LONG *digit, String data)
 {
-    if ((digit == NULL) || (data == NULL) || (data_len == 0))
+    if ((digit == NULL) || (data.str == NULL) || (data.size == 0))
     {
         return;
     }
 
     if (*digit == -1)
     {
-        if (is_digit(*data))
+        if (is_digit(*data.str))
         {
-            *digit = *data - '0';
+            *digit = *data.str - '0';
         }
         else
         {
-            *digit = match_str(data, data_len);
+            *digit = match_str(data);
         }
     }
 }
 
-static LONG match_str(PBYTE data, SIZE_T data_len)
+static LONG match_str(String data)
 {
-    if (data_len < 3)
+    if (data.size < 3)
     {
         return -1;
     }
@@ -141,7 +135,7 @@ static LONG match_str(PBYTE data, SIZE_T data_len)
 
     for (SIZE_T i = 0; i < sizeof digit_names / sizeof *digit_names; i++)
     {
-        if (has_substr(data, data_len, digit_names[i]))
+        if (string_prefix(data, digit_names[i]).str != NULL)
         {
             value = (LONG)i + 1;
         }

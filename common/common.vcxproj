@@ -153,10 +153,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\common.c" />
+    <ClInclude Include="include\common.h" />
+    <ClInclude Include="include\io.h" />
+    <ClInclude Include="include\str.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\common.h" />
+    <ClCompile Include="src\io.c" />
+    <ClCompile Include="src\str.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
