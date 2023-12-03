@@ -14,6 +14,8 @@ String COMMON tokenize(String *string, LPCSTR delimiter);
 
 BOOL COMMON is_digit(BYTE character);
 
+BOOL COMMON is_symbol(BYTE character);
+
 String COMMON string_prefix(String string, LPCSTR substr);
 
 SIZE_T COMMON cstrlen(LPCSTR str);

@@ -50,6 +50,14 @@ BOOL COMMON is_digit(BYTE character)
     return (character >= '0') && (character <= '9');
 }
 
+BOOL COMMON is_symbol(BYTE character)
+{
+    return ((character >= '!') && (character <= '/')) ||
+        ((character >= ':') && (character <= '@')) ||
+        ((character >= '[') && (character <= '`')) ||
+        ((character >= '{') && (character <= '~'));
+}
+
 String COMMON string_prefix(String string, LPCSTR substr)
 {
     if ((string.str == NULL) || (string.size == 0) || (substr == NULL))
