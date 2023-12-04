@@ -4,6 +4,7 @@
 #include "day_01/src/solve.h"
 #include "day_02/src/solve.h"
 #include "day_03/src/solve.h"
+#include "day_04/src/solve.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -56,6 +57,22 @@ namespace AdventOfCode
 		{
 			Result03 result = solve03(PATH_PREFIX L"day_03\\res\\input.txt");
 			Assert::AreEqual((int)89471771, (int)result.solve2);
+		}
+	};
+
+	TEST_CLASS(Day04)
+	{
+	public:
+		TEST_METHOD(Solve1)
+		{
+			Result04 result = solve04(PATH_PREFIX L"day_04\\res\\input.txt");
+			Assert::AreEqual((int)25010, (int)result.solve1);
+		}
+
+		TEST_METHOD(Solve2)
+		{
+			Result04 result = solve04(PATH_PREFIX L"day_04\\res\\input.txt");
+			Assert::AreEqual((int)9924412, (int)result.solve2);
 		}
 	};
 }

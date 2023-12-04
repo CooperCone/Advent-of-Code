@@ -18,6 +18,8 @@ BOOL COMMON is_symbol(BYTE character);
 
 String COMMON string_prefix(String string, LPCSTR substr);
 
+String COMMON string_find(String string, CHAR c);
+
 SIZE_T COMMON cstrlen(LPCSTR str);
 
 SIZE_T COMMON wstrlen(LPCWSTR str);

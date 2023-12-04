@@ -92,6 +92,32 @@ String COMMON string_prefix(String string, LPCSTR substr)
     return result;
 }
 
+String COMMON string_find(String string, CHAR c)
+{
+    if ((string.size == 0) || (string.str == NULL))
+    {
+        return (String){0};
+    }
+
+    String result = {0};
+
+    while ((string.size > 0) && (*string.str != c))
+    {
+        if (!consume(&string, 1))
+        {
+            goto COMPLETE;
+        }
+    }
+
+    if (string.size > 0)
+    {
+        result = string;
+    }
+
+COMPLETE:
+    return result;
+}
+
 SIZE_T COMMON cstrlen(LPCSTR str)
 {
     if (str == NULL)
