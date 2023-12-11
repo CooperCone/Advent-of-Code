@@ -29,3 +29,5 @@ BOOL COMMON consume(String *string, SIZE_T num_to_consume);
 BOOL COMMON consume_if(String *string, LPCSTR prefix);
 
 BOOL COMMON parse_uint(String *string, PULONGLONG out_number);
+
+BOOL COMMON parse_int(String *string, PLONGLONG out_number);

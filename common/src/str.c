@@ -221,6 +221,52 @@ BOOL COMMON parse_uint(String *string, PULONGLONG out_number)
     return TRUE;
 }
 
+BOOL COMMON parse_int(String *string, PLONGLONG out_number)
+{
+    if ((string == NULL) || (string->str == NULL) || (string->size == 0) ||
+        (out_number == NULL))
+    {
+        return FALSE;
+    }
+
+    BOOL result = FALSE;
+
+    BOOL is_neg = FALSE;
+
+    if (string->str[0] == '-')
+    {
+        is_neg = TRUE;
+        consume(string, 1);
+    }
+
+    ULONGLONG abs_value = 0;
+
+    if (!parse_uint(string, &abs_value))
+    {
+        goto COMPLETE;
+    }
+
+    if (abs_value > LLONG_MAX)
+    {
+        goto COMPLETE;
+    }
+
+    LONGLONG number = (LONGLONG)abs_value;
+
+    if (is_neg)
+    {
+        number *= -1;
+    }
+
+    *out_number = number;
+
+    result = TRUE;
+
+COMPLETE:
+    return result;
+}
+
+
 static BOOL compare_delimiter(String string, LPCSTR delimiter)
 {
     if ((string.str == NULL) || (string.size == 0) || (delimiter == NULL))
