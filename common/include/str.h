@@ -31,3 +31,5 @@ BOOL COMMON consume_if(String *string, LPCSTR prefix);
 BOOL COMMON parse_uint(String *string, PULONGLONG out_number);
 
 BOOL COMMON parse_int(String *string, PLONGLONG out_number);
+
+BOOL COMMON copy_memory(void *dst, void *src, SIZE_T num_bytes);

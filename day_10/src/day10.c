@@ -132,7 +132,6 @@ Result10 solve10(LPCWSTR filename)
 
     Point start = {0};
 
-
     for (SIZE_T y = 0; y < num_lines; y++)
     {
         for (SIZE_T x = 0; x < width; x++)

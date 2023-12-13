@@ -266,6 +266,23 @@ COMPLETE:
     return result;
 }
 
+BOOL COMMON copy_memory(void *dst, void *src, SIZE_T num_bytes)
+{
+    if ((dst == NULL) || (src == NULL) || (num_bytes == 0))
+    {
+        return FALSE;
+    }
+
+    PBYTE dst_bytes = dst;
+    PBYTE src_bytes = src;
+
+    for (SIZE_T i = 0; i < num_bytes; i++)
+    {
+        dst_bytes[i] = src_bytes[i];
+    }
+
+    return TRUE;
+}
 
 static BOOL compare_delimiter(String string, LPCSTR delimiter)
 {
