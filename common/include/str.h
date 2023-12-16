@@ -10,6 +10,9 @@ typedef struct
     SIZE_T size;
 } String;
 
+BOOL COMMON split(String *string, LPCSTR delimiter, String **out_strs,
+    SIZE_T *out_num_strs);
+
 String COMMON tokenize(String *string, LPCSTR delimiter);
 
 BOOL COMMON is_digit(BYTE character);

@@ -2,6 +2,70 @@
 
 static BOOL compare_delimiter(String string, LPCSTR delimiter);
 
+BOOL COMMON split(String *string, LPCSTR delimiter, String **out_strs,
+    SIZE_T *out_num_strs)
+{
+    if ((string == NULL) || (string->str == NULL) || (string->size == 0) ||
+        (delimiter == NULL) || (out_strs == NULL) || (out_num_strs == NULL))
+    {
+        return FALSE;
+    }
+
+    BOOL result = FALSE;
+
+    SIZE_T num_lines = 0;
+    SIZE_T max_lines = 8;
+    String *lines = HeapAlloc(GetProcessHeap(), 0, max_lines * sizeof *lines);
+
+    if (lines == NULL)
+    {
+        goto ERROR_NO_CLEANUP;
+    }
+
+    String str = *string;
+
+    for (;;)
+    {
+        String line = tokenize(&str, "\r\n");
+
+        if (line.size == 0)
+        {
+            break;
+        }
+
+        num_lines++;
+
+        if (num_lines > max_lines)
+        {
+            max_lines *= 2;
+
+            String *new_lines = HeapReAlloc(GetProcessHeap(), 0, lines,
+                max_lines * sizeof *lines);
+
+            if (new_lines == NULL)
+            {
+                goto ERROR_CLEANUP_LINES;
+            }
+
+            lines = new_lines;
+        }
+
+        lines[num_lines - 1] = line;
+    }
+
+    *out_strs = lines;
+    *out_num_strs = num_lines;
+
+    return TRUE;
+
+ERROR_CLEANUP_LINES:
+    HeapFree(GetProcessHeap(), 0, lines);
+    lines = NULL;
+
+ERROR_NO_CLEANUP:
+    return FALSE;
+}
+
 String COMMON tokenize(String *string, LPCSTR delimiter)
 {
     if ((string == NULL) || (string->size == 0) || (string->str == NULL) ||
