@@ -182,6 +182,26 @@ COMPLETE:
     return result;
 }
 
+BOOL COMMON string_cmp(String s1, String s2)
+{
+    if ((s1.size != s2.size) || (s1.str == NULL) || (s2.str == NULL))
+    {
+        return FALSE;
+    }
+
+    BOOL are_same = TRUE;
+
+    for (SIZE_T i = 0; i < s1.size; i++)
+    {
+        if (s1.str[i] != s2.str[i])
+        {
+            are_same = FALSE;
+        }
+    }
+
+    return are_same;
+}
+
 SIZE_T COMMON cstrlen(LPCSTR str)
 {
     if (str == NULL)

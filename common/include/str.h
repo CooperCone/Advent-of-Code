@@ -23,6 +23,8 @@ String COMMON string_prefix(String string, LPCSTR substr);
 
 String COMMON string_find(String string, CHAR c);
 
+BOOL COMMON string_cmp(String s1, String s2);
+
 SIZE_T COMMON cstrlen(LPCSTR str);
 
 SIZE_T COMMON wstrlen(LPCWSTR str);

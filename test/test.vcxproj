@@ -107,8 +107,8 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;$(SolutionDir)obj\Debug\x64\day_01;$(SolutionDir)obj\Debug\x64\day_02;$(SolutionDir)obj\Debug\x64\day_03;$(SolutionDir)obj\Debug\x64\day_04;$(SolutionDir)obj\Debug\x64\day_05;$(SolutionDir)obj\Debug\x64\day_06;$(SolutionDir)obj\Debug\x64\day_07;$(SolutionDir)obj\Debug\x64\day_08;$(SolutionDir)obj\Debug\x64\day_09;$(SolutionDir)obj\Debug\x64\day_10;$(SolutionDir)obj\Debug\x64\day_11;$(SolutionDir)obj\Debug\x64\day_12;$(SolutionDir)obj\Debug\x64\day_13;$(SolutionDir)obj\Debug\x64\day_14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>day01.obj;day02.obj;day03.obj;day04.obj;day05.obj;day06.obj;day07.obj;day08.obj;day09.obj;day10.obj;day11.obj;day12.obj;day13.obj;day14.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;$(SolutionDir)obj\Debug\x64\day_01;$(SolutionDir)obj\Debug\x64\day_02;$(SolutionDir)obj\Debug\x64\day_03;$(SolutionDir)obj\Debug\x64\day_04;$(SolutionDir)obj\Debug\x64\day_05;$(SolutionDir)obj\Debug\x64\day_06;$(SolutionDir)obj\Debug\x64\day_07;$(SolutionDir)obj\Debug\x64\day_08;$(SolutionDir)obj\Debug\x64\day_09;$(SolutionDir)obj\Debug\x64\day_10;$(SolutionDir)obj\Debug\x64\day_11;$(SolutionDir)obj\Debug\x64\day_12;$(SolutionDir)obj\Debug\x64\day_13;$(SolutionDir)obj\Debug\x64\day_14;$(SolutionDir)obj\Debug\x64\day_15;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>day01.obj;day02.obj;day03.obj;day04.obj;day05.obj;day06.obj;day07.obj;day08.obj;day09.obj;day10.obj;day11.obj;day12.obj;day13.obj;day14.obj;day15.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -123,8 +123,8 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;$(SolutionDir)obj\Debug\x64\day_01;$(SolutionDir)obj\Debug\x64\day_02;$(SolutionDir)obj\Debug\x64\day_03;$(SolutionDir)obj\Debug\x64\day_04;$(SolutionDir)obj\Debug\x64\day_05;$(SolutionDir)obj\Debug\x64\day_06;$(SolutionDir)obj\Debug\x64\day_07;$(SolutionDir)obj\Debug\x64\day_08;$(SolutionDir)obj\Debug\x64\day_09;$(SolutionDir)obj\Debug\x64\day_10;$(SolutionDir)obj\Debug\x64\day_11;$(SolutionDir)obj\Debug\x64\day_12;$(SolutionDir)obj\Debug\x64\day_13;$(SolutionDir)obj\Debug\x64\day_14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>day01.obj;day02.obj;day03.obj;day04.obj;day05.obj;day06.obj;day07.obj;day08.obj;day09.obj;day10.obj;day11.obj;day12.obj;day13.obj;day14.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;$(SolutionDir)obj\Debug\x64\day_01;$(SolutionDir)obj\Debug\x64\day_02;$(SolutionDir)obj\Debug\x64\day_03;$(SolutionDir)obj\Debug\x64\day_04;$(SolutionDir)obj\Debug\x64\day_05;$(SolutionDir)obj\Debug\x64\day_06;$(SolutionDir)obj\Debug\x64\day_07;$(SolutionDir)obj\Debug\x64\day_08;$(SolutionDir)obj\Debug\x64\day_09;$(SolutionDir)obj\Debug\x64\day_10;$(SolutionDir)obj\Debug\x64\day_11;$(SolutionDir)obj\Debug\x64\day_12;$(SolutionDir)obj\Debug\x64\day_13;$(SolutionDir)obj\Debug\x64\day_14;$(SolutionDir)obj\Debug\x64\day_15;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>day01.obj;day02.obj;day03.obj;day04.obj;day05.obj;day06.obj;day07.obj;day08.obj;day09.obj;day10.obj;day11.obj;day12.obj;day13.obj;day14.obj;day15.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -143,8 +143,8 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;$(SolutionDir)obj\Debug\x64\day_01;$(SolutionDir)obj\Debug\x64\day_02;$(SolutionDir)obj\Debug\x64\day_03;$(SolutionDir)obj\Debug\x64\day_04;$(SolutionDir)obj\Debug\x64\day_05;$(SolutionDir)obj\Debug\x64\day_06;$(SolutionDir)obj\Debug\x64\day_07;$(SolutionDir)obj\Debug\x64\day_08;$(SolutionDir)obj\Debug\x64\day_09;$(SolutionDir)obj\Debug\x64\day_10;$(SolutionDir)obj\Debug\x64\day_11;$(SolutionDir)obj\Debug\x64\day_12;$(SolutionDir)obj\Debug\x64\day_13;$(SolutionDir)obj\Debug\x64\day_14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>day01.obj;day02.obj;day03.obj;day04.obj;day05.obj;day06.obj;day07.obj;day08.obj;day09.obj;day10.obj;day11.obj;day12.obj;day13.obj;day14.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;$(SolutionDir)obj\Debug\x64\day_01;$(SolutionDir)obj\Debug\x64\day_02;$(SolutionDir)obj\Debug\x64\day_03;$(SolutionDir)obj\Debug\x64\day_04;$(SolutionDir)obj\Debug\x64\day_05;$(SolutionDir)obj\Debug\x64\day_06;$(SolutionDir)obj\Debug\x64\day_07;$(SolutionDir)obj\Debug\x64\day_08;$(SolutionDir)obj\Debug\x64\day_09;$(SolutionDir)obj\Debug\x64\day_10;$(SolutionDir)obj\Debug\x64\day_11;$(SolutionDir)obj\Debug\x64\day_12;$(SolutionDir)obj\Debug\x64\day_13;$(SolutionDir)obj\Debug\x64\day_14;$(SolutionDir)obj\Debug\x64\day_15;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>day01.obj;day02.obj;day03.obj;day04.obj;day05.obj;day06.obj;day07.obj;day08.obj;day09.obj;day10.obj;day11.obj;day12.obj;day13.obj;day14.obj;day15.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -163,8 +163,8 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;$(SolutionDir)obj\Debug\x64\day_01;$(SolutionDir)obj\Debug\x64\day_02;$(SolutionDir)obj\Debug\x64\day_03;$(SolutionDir)obj\Debug\x64\day_04;$(SolutionDir)obj\Debug\x64\day_05;$(SolutionDir)obj\Debug\x64\day_06;$(SolutionDir)obj\Debug\x64\day_07;$(SolutionDir)obj\Debug\x64\day_08;$(SolutionDir)obj\Debug\x64\day_09;$(SolutionDir)obj\Debug\x64\day_10;$(SolutionDir)obj\Debug\x64\day_11;$(SolutionDir)obj\Debug\x64\day_12;$(SolutionDir)obj\Debug\x64\day_13;$(SolutionDir)obj\Debug\x64\day_14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>day01.obj;day02.obj;day03.obj;day04.obj;day05.obj;day06.obj;day07.obj;day08.obj;day09.obj;day10.obj;day11.obj;day12.obj;day13.obj;day14.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;$(SolutionDir)obj\Debug\x64\day_01;$(SolutionDir)obj\Debug\x64\day_02;$(SolutionDir)obj\Debug\x64\day_03;$(SolutionDir)obj\Debug\x64\day_04;$(SolutionDir)obj\Debug\x64\day_05;$(SolutionDir)obj\Debug\x64\day_06;$(SolutionDir)obj\Debug\x64\day_07;$(SolutionDir)obj\Debug\x64\day_08;$(SolutionDir)obj\Debug\x64\day_09;$(SolutionDir)obj\Debug\x64\day_10;$(SolutionDir)obj\Debug\x64\day_11;$(SolutionDir)obj\Debug\x64\day_12;$(SolutionDir)obj\Debug\x64\day_13;$(SolutionDir)obj\Debug\x64\day_14;$(SolutionDir)obj\Debug\x64\day_15;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>day01.obj;day02.obj;day03.obj;day04.obj;day05.obj;day06.obj;day07.obj;day08.obj;day09.obj;day10.obj;day11.obj;day12.obj;day13.obj;day14.obj;day15.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
