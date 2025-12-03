@@ -6,6 +6,7 @@ dependencies = []
 
 [project.scripts]
 day01 = "advent.day01.day01:day01"
+day02 = "advent.day02.day02:day02"
 
 [tool.setuptools]
 packages = ["advent"]
