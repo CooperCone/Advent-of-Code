@@ -8,6 +8,7 @@ dependencies = []
 day01 = "advent.day01.day01:day01"
 day02 = "advent.day02.day02:day02"
 day03 = "advent.day03.day03:day03"
+day04 = "advent.day04.day04:day04"
 
 [tool.setuptools]
 packages = ["advent"]
